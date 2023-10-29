@@ -1,6 +1,9 @@
 import { updateProducts } from './rendering';
 import { products } from './products';
 
+const titleEl = document.querySelector('#new-product #title');
+const priceEl = document.querySelector('#new-product #price');
+
 export function deleteProduct(prodId) {
   const deletedProductIndex = products.findIndex(prod => prod.id === prodId);
   const deletedProduct = products[deletedProductIndex];
@@ -9,9 +12,6 @@ export function deleteProduct(prodId) {
 }
 
 export function addProduct(event) {
-  const titleEl = document.querySelector('#new-product #title');
-  const priceEl = document.querySelector('#new-product #price');
-
   const title = titleEl.value;
   const price = priceEl.value;
 
