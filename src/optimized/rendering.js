@@ -2,13 +2,12 @@ const productListEl = document.getElementById('product-list');
 
 function createElement(product, prodId, deleteProductFn) {
   const newListEl = document.createElement('li');
-  const prodTitleEl = document.createElement('h2');
-  const prodPriceEl = document.createElement('p');
+  newListEl.innerHTML = `
+    <h2>${product.title}</h2>
+    <p>${product.price}</p>
+  `;
   const prodDeleteButtonEl = document.createElement('button');
-
-  prodTitleEl.innerHTML = product.title;
-  prodPriceEl.innerHTML = product.price;
-  prodDeleteButtonEl.innerHTML = 'DELETE';
+  prodDeleteButtonEl.textContent = 'DELETE';
 
   newListEl.id = prodId;
 
@@ -17,8 +16,6 @@ function createElement(product, prodId, deleteProductFn) {
     deleteProductFn.bind(null, prodId)
   );
 
-  newListEl.appendChild(prodTitleEl);
-  newListEl.appendChild(prodPriceEl);
   newListEl.appendChild(prodDeleteButtonEl);
 
   return newListEl;
