@@ -1,4 +1,4 @@
-import { renderProducts, updateProducts } from './rendering';
+import { updateProducts } from './rendering';
 import { products as prods } from './products';
 
 let products = prods;
@@ -18,7 +18,6 @@ export function deleteProduct(prodId) {
 }
 
 export function addProduct(event) {
-  event.preventDefault();
   const titleEl = document.querySelector('#new-product #title');
   const priceEl = document.querySelector('#new-product #price');
 
@@ -37,5 +36,5 @@ export function addProduct(event) {
   };
 
   products.unshift(newProduct);
-  renderProducts(products, deleteProduct);
+  updateProducts(newProduct, newProduct.id, deleteProduct, true);
 }
