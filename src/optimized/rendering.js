@@ -11,6 +11,8 @@ export function renderProducts(products, deleteProductFn) {
     prodPriceEl.innerHTML = product.price;
     prodDeleteButtonEl.innerHTML = 'DELETE';
 
+    newListEl.id = product.id;
+
     prodDeleteButtonEl.addEventListener(
       'click',
       deleteProductFn.bind(null, product.id)
@@ -22,4 +24,13 @@ export function renderProducts(products, deleteProductFn) {
 
     productListEl.appendChild(newListEl);
   });
+}
+
+export function updateProducts(product, prodId, deleteProductFn, isAdding) {
+  if (isAdding) {
+  } else {
+    const productEl = document.getElementById(prodId);
+    productEl.remove();
+    // productEl.parentElement.removeChild(productEl);
+  }
 }

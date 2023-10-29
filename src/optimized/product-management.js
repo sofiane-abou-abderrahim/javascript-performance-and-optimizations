@@ -1,17 +1,20 @@
-import { renderProducts } from './rendering';
+import { renderProducts, updateProducts } from './rendering';
 import { products as prods } from './products';
 
 let products = prods;
 
 export function deleteProduct(prodId) {
   const updatedProducts = [];
+  let deletedProduct;
   for (const prod of products) {
     if (prod.id !== prodId) {
       updatedProducts.push(prod);
+    } else {
+      deletedProduct = prod;
     }
   }
   products = updatedProducts;
-  renderProducts(products, deleteProduct);
+  updateProducts(deletedProduct, prodId, deleteProduct, false);
 }
 
 export function addProduct(event) {
