@@ -24,10 +24,18 @@ function createElement(product, prodId, deleteProductFn) {
 export function renderProducts(products, deleteProductFn) {
   productListEl.innerHTML = '';
   const startTime = performance.now();
-  products.forEach(product => {
-    const newListEl = createElement(product, product.id, deleteProductFn);
+  // products.forEach(product => {
+  //   const newListEl = createElement(product, product.id, deleteProductFn);
+  //   productListEl.appendChild(newListEl);
+  // });
+  for (let i = 0; i < products.length; i++) {
+    const newListEl = createElement(
+      products[i],
+      products[i].id,
+      deleteProductFn
+    );
     productListEl.appendChild(newListEl);
-  });
+  }
   const endTime = performance.now();
   console.log(endTime - startTime);
 }
