@@ -1,5 +1,4 @@
 const productListEl = document.getElementById('product-list');
-const renderedProducts = [];
 
 function createElement(product, prodId, deleteProductFn) {
   const newListEl = document.createElement('li');
@@ -45,8 +44,6 @@ export function updateProducts(product, prodId, deleteProductFn, isAdding) {
   if (isAdding) {
     const newProductEl = createElement(product, prodId, deleteProductFn);
     productListEl.insertAdjacentElement('afterbegin', newProductEl);
-    renderedProducts.push(newProductEl);
-    console.log(renderedProducts);
   } else {
     const productEl = document.getElementById(prodId);
     productEl.remove();
