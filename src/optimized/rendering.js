@@ -23,10 +23,13 @@ function createElement(product, prodId, deleteProductFn) {
 
 export function renderProducts(products, deleteProductFn) {
   productListEl.innerHTML = '';
+  const startTime = performance.now();
   products.forEach(product => {
     const newListEl = createElement(product, product.id, deleteProductFn);
     productListEl.appendChild(newListEl);
   });
+  const endTime = performance.now();
+  console.log(endTime - startTime);
 }
 
 export function updateProducts(product, prodId, deleteProductFn, isAdding) {
